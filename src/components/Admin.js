@@ -4,7 +4,7 @@ export function AdminDashboard() {
     const [orders, setOrders] = useState([]);
     
   function getOrders() {
-    fetch("http://localhost:3001/admin")
+    fetch("https://database-backend-eta.vercel.app/admin")
       .then((response) => {
         return response.text();
       })
@@ -23,7 +23,7 @@ export function AdminDashboard() {
   }
   
   function updateClient(id,status) {
-    fetch(`http://localhost:3001/admin/${id}`, {
+    fetch(`https://database-backend-eta.vercel.app/admin/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

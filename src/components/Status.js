@@ -14,7 +14,7 @@ export function Status() {
 
   function getStatus() {
     const id = localStorage.getItem("order");
-    fetch(`http://localhost:3001/status/`, {
+    fetch(`https://database-backend-eta.vercel.app/status/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -32,7 +32,7 @@ export function Status() {
   }
   function deleteOrder() {
     const id = localStorage.getItem("order");
-    fetch(`http://localhost:3001/orders/${id}`, {
+    fetch(`https://database-backend-eta.vercel.app/orders/${id}`, {
       method: "DELETE",
     })
       .then((response) => {

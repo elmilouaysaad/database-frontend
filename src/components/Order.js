@@ -62,7 +62,7 @@ useEffect(()=>{
 
     function placeOrder(address,quantity,name,total) {
         const id =localStorage.getItem("user");
-      fetch(`http://localhost:3001/orders/`, {
+      fetch(`https://database-backend-eta.vercel.app/orders/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
