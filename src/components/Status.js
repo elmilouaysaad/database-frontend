@@ -5,6 +5,7 @@ export function Status() {
   const {id} = useParams();
   const [orderStatus, setOrderStatus] = useState(0);
   localStorage.setItem("status",0);
+  localStorage.setItem("pass",0);
   useEffect(() => {
     if (!isNaN(localStorage.getItem("status"))) {
       setOrderStatus(localStorage.getItem("status"));
@@ -14,7 +15,7 @@ export function Status() {
 
   function getStatus() {
     const id = localStorage.getItem("order");
-    fetch(`https://database-backend-eta.vercel.app/status/`, {
+    fetch(`https://database-backend-vert.vercel.app//status/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -32,7 +33,7 @@ export function Status() {
   }
   function deleteOrder() {
     const id = localStorage.getItem("order");
-    fetch(`https://database-backend-eta.vercel.app/orders/${id}`, {
+    fetch(`https://database-backend-vert.vercel.app//orders/${id}`, {
       method: "DELETE",
     })
       .then((response) => {
