@@ -113,6 +113,7 @@ function App() {
       <Route path="/status/:id" element={<Status/>}/>
       <Route path="/admin" element={<AdminDashboard/>}/>
       </Routes>
+      <footer>AUI, Made for database Class by Saad Elmilouay, Younes Mellouk, Ahmed Taha Baitou, Omar Lhoumadi</footer>
     </BrowserRouter>
   );
 }
