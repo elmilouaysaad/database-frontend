@@ -13,7 +13,7 @@ function App() {
   const [user, setUser] = useState(false);
 
   function getClients() {
-    fetch("https://database-backend-vert.vercel.app/")
+    fetch("https://database-backend-vert.vercel.app")
       .then((response) => {
         return response.text();
       })
@@ -26,7 +26,7 @@ function App() {
     let name = prompt("Enter client name");
     let email = prompt("Enter client email");
     let password = prompt("Enter client password");
-    fetch("https://database-backend-vert.vercel.app//clients", {
+    fetch("https://database-backend-vert.vercel.app/clients", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -46,7 +46,7 @@ function App() {
 
   function deleteClient() {
     let id = prompt("Enter client id");
-    fetch(`https://database-backend-vert.vercel.app//clients/${id}`, {
+    fetch(`https://database-backend-vert.vercel.app/clients/${id}`, {
       method: "DELETE",
     })
       .then((response) => {
@@ -62,7 +62,7 @@ function App() {
     let id = prompt("Enter client id");
     let name = prompt("Enter new client name");
     let email = prompt("Enter new client email");
-    fetch(`https://database-backend-vert.vercel.app//clients/${id}`, {
+    fetch(`https://database-backend-vert.vercel.app/clients/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -80,7 +80,7 @@ function App() {
   function loginClient() {
     let email = prompt("Enter your email");
     let password = prompt("Enter password");
-    fetch(`https://database-backend-vert.vercel.app//clients/`, {
+    fetch(`https://database-backend-vert.vercel.app/clients/`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
