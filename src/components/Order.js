@@ -8,6 +8,7 @@ export function Order({signOut}) {
     const [pass,setPass]=useState(0);
     const {id} = useParams();
     const [focused, setFocused] = useState(false);
+    const [cId,setCID]=useState(0);
     const handleFocus = () => {
       setFocused(true);
     };
@@ -56,7 +57,8 @@ export function Order({signOut}) {
     };
 useEffect(()=>{
         setOrder(localStorage.getItem("order"));
-        setPass(localStorage.getItem("pass"))
+        setPass(localStorage.getItem("pass"));
+        setCID(localStorage.getItem("user"));
     },[]);
     
 
@@ -81,7 +83,7 @@ useEffect(()=>{
     if (!iceCream) {
         return <div>Loading...</div>;
     }
-    
+    if(id==cID){
     return (
         <div className="bg-gray-100 min-h-screen">
             <div className="container mx-auto p-8">
@@ -154,5 +156,14 @@ useEffect(()=>{
                 </form>
             </div>
         </div>
-    );
+    );} else{
+        return( 
+            <div class="min-h-screen flex flex-grow items-center justify-center bg-gray-50">
+            <div class="rounded-lg bg-white p-8 text-center shadow-xl">
+              <h1 class="mb-4 text-4xl font-bold">401</h1>
+              <p class="text-gray-600">Oops! The page you are looking for has special crediantials.</p>
+            </div>
+          </div>
+  )
+    }
 }
