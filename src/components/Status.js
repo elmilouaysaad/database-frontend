@@ -3,6 +3,7 @@ import {useParams} from "react-router-dom";
 
 export function Status() {
   const {id} = useParams();
+  const [cId,setCID]=useState(0);
   const [orderStatus, setOrderStatus] = useState(0);
   localStorage.setItem("status",0);
   localStorage.setItem("pass",0);
@@ -11,6 +12,7 @@ export function Status() {
       setOrderStatus(localStorage.getItem("status"));
     }
     getStatus();
+    setCID(localStorage.getItem("user"));
   }, []);
 
   function getStatus() {
@@ -44,6 +46,7 @@ export function Status() {
         setOrderStatus(-1);
       });
   }
+  if(id==cId){
   return (
     <div className="bg-gray-100 min-h-screen">
       <div className="container mx-auto p-8">
@@ -86,5 +89,14 @@ export function Status() {
         </div>
       </div>
     </div>
-  );
+  );} else{
+    return( 
+        <div class="min-h-screen flex flex-grow items-center justify-center bg-gray-50">
+        <div class="rounded-lg bg-white p-8 text-center shadow-xl">
+          <h1 class="mb-4 text-4xl font-bold">401</h1>
+          <p class="text-gray-600">Oops! The page you are looking for has special crediantials.</p>
+        </div>
+      </div>
+)
+}
 }
