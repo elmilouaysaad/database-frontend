@@ -110,30 +110,7 @@ export function AdminDashboard() {
     else{
         return( 
         <div>
-          <div className="container mx-auto">
-            <div className="-mx-4 flex">
-              <div className="w-full px-4">
-                <div className="mx-auto  text-center">
-                  <h2 className="mb-2 text-[50px] font-bold leading-none text-white ">
-                    401
-                  </h2>
-                  <h4 className="mb-3  font-semibold leading-tight text-white">
-                  UNAUTHORIZED
-                  </h4>
-                  <p className="mb-8 text-lg text-white">
-                    The page you are looking for needs special credentials
-                  </p>
-                  <Link
-                    to={"/"}
-                  >
-                    <button className="inline-block rounded-lg border border-white px-8 py-3 text-center text-base font-semibold text-white transition hover:bg-white hover:text-primary">
-                    Go To Home</button>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-  
+         <span>401</span> 
         </div>
   )
     }
