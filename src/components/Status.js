@@ -6,13 +6,11 @@ export function Status() {
   const [orderStatus, setOrderStatus] = useState(0);
   localStorage.setItem("status",0);
   localStorage.setItem("pass",0);
-  localStorage.setItem("order",0);
   useEffect(() => {
     if (!isNaN(localStorage.getItem("status"))) {
       setOrderStatus(localStorage.getItem("status"));
     }
     getStatus();
-    setCID(localStorage.getItem("user"));
   }, []);
 
   function getStatus() {
@@ -46,7 +44,6 @@ export function Status() {
         setOrderStatus(-1);
       });
   }
-
   return (
     <div className="bg-gray-100 min-h-screen">
       <div className="container mx-auto p-8">
