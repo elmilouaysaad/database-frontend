@@ -58,11 +58,10 @@ export function AdminDashboard() {
 
     };
     useEffect(() => {
-        setUser(localStorage.getItem("user"));
+        setUser(parseInt(localStorage.getItem("user")));
         console.log(user);
         console.log(localStorage.getItem("user"));
-
-    getOrders()
+        getOrders()
     }, [])
     
     if(user==1){
