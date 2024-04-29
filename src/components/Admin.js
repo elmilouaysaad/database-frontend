@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export function AdminDashboard() {
     const [orders, setOrders] = useState([]);
-    const [user,setUser]=useState();
+    const [user,setUser]=useState(setUser(localStorage.getItem("user")));
   function getOrders() {
     fetch("https://database-backend-vert.vercel.app/admin")
       .then((response) => {
@@ -59,6 +59,7 @@ export function AdminDashboard() {
     };
     useEffect(() => {
         setUser(localStorage.getItem("user"));
+        console.log(user);
     getOrders()
     }, [])
     
