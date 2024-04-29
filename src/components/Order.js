@@ -83,7 +83,7 @@ useEffect(()=>{
     if (!iceCream) {
         return <div>Loading...</div>;
     }
-    if(id==cID){
+    if(id==cId){
     return (
         <div className="bg-gray-100 min-h-screen">
             <div className="container mx-auto p-8">
