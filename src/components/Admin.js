@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export function AdminDashboard() {
     const [orders, setOrders] = useState([]);
-    
+    const [user,setUser]=useState();
   function getOrders() {
     fetch("https://database-backend-vert.vercel.app/admin")
       .then((response) => {
@@ -57,10 +58,11 @@ export function AdminDashboard() {
 
     };
     useEffect(() => {
+        setUser(localStorage.getItem("user"));
     getOrders()
     }, [])
     
-
+    if(user==1){
     return (
         <div className="bg-gray-100 min-h-screen">
             <div className="container mx-auto p-8">
@@ -102,5 +104,43 @@ export function AdminDashboard() {
                 </div>
             </div>
         </div>
-    );
+    );}
+    else{
+        return <>
+        <section className="relative z-10 bg-primary py-[120px]">
+          <div className="container mx-auto">
+            <div className="-mx-4 flex">
+              <div className="w-full px-4">
+                <div className="mx-auto max-w-[400px] text-center">
+                  <h2 className="mb-2 text-[50px] font-bold leading-none text-white sm:text-[80px] md:text-[100px]">
+                    401
+                  </h2>
+                  <h4 className="mb-3 text-[22px] font-semibold leading-tight text-white">
+                  UNAUTHORIZED
+                  </h4>
+                  <p className="mb-8 text-lg text-white">
+                    The page you are looking for needs special credentials
+                  </p>
+                  <Link
+                    to={"/"}
+                    className="inline-block rounded-lg border border-white px-8 py-3 text-center text-base font-semibold text-white transition hover:bg-white hover:text-primary"
+                  >
+                    Go To Home
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div className="absolute left-0 top-0 -z-10 flex h-full w-full items-center justify-between space-x-5 md:space-x-8 lg:space-x-14">
+            <div className="h-full w-1/3 bg-gradient-to-t from-[#FFFFFF14] to-[#C4C4C400]"></div>
+            <div className="flex h-full w-1/3">
+              <div className="h-full w-1/2 bg-gradient-to-b from-[#FFFFFF14] to-[#C4C4C400]"></div>
+              <div className="h-full w-1/2 bg-gradient-to-t from-[#FFFFFF14] to-[#C4C4C400]"></div>
+            </div>
+            <div className="h-full w-1/3 bg-gradient-to-b from-[#FFFFFF14] to-[#C4C4C400]"></div>
+          </div>
+        </section>
+      </>
+    }
 }
