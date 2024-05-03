@@ -145,7 +145,7 @@ useEffect(()=>{
                     </span>
                 }
                     {((pass>0)) &&
-                        <Link  className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"  to={`/status/${parseInt(order)}`}>
+                        <Link  className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"  to={`/status/${parseInt(order)+1}`}>
                             <button onClick={()=>{setPass(0);localStorage.setItem("pass",0)}}>
                             check status of order</button>
                         </Link>
