@@ -5,7 +5,7 @@ export function AdminDashboard() {
     const [orders, setOrders] = useState([]);
     const [user,setUser]=useState(0);
   function getOrders() {
-    fetch("https://database-backend-vert.vercel.app/admin")
+    fetch("https://database-back.vercel.app/admin")
       .then((response) => {
         return response.text();
       })
@@ -24,7 +24,7 @@ export function AdminDashboard() {
   }
   
   function updateClient(id,status) {
-    fetch(`https://database-backend-vert.vercel.app/admin/${id}`, {
+    fetch(`https://database-back.vercel.app/admin/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
