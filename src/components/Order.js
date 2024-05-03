@@ -57,6 +57,7 @@ export function Order({signOut}) {
 useEffect(()=>{
         setOrder(localStorage.getItem("order"));
         setPass(localStorage.getItem("pass"));
+        console.log(order);
     },[]);
     
 
@@ -74,8 +75,8 @@ useEffect(()=>{
         })
         .then((data) => {
             localStorage.setItem("order",data);
-            setOrder(order);
-          console.log(data)
+            setOrder(data);
+            console.log(data)
         });
     }
     if (!iceCream) {
@@ -144,7 +145,7 @@ useEffect(()=>{
                     </span>
                 }
                     {((pass>0)) &&
-                        <Link  className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"  to={`/status/${parseInt(order)+1}`}>
+                        <Link  className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"  to={`/status/${parseInt(order)}`}>
                             <button onClick={()=>{setPass(0);localStorage.setItem("pass",0)}}>
                             check status of order</button>
                         </Link>
