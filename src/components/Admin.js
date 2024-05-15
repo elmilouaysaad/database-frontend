@@ -5,7 +5,7 @@ export function AdminDashboard() {
     const [orders, setOrders] = useState([]);
     const [user,setUser]=useState(0);
   function getOrders() {
-    fetch("https://database-back.vercel.app/admin")
+    fetch("https://database-back.vercel.app/orders")
       .then((response) => {
         return response.text();
       })
