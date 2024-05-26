@@ -61,7 +61,8 @@ export function AdminDashboard() {
         setUser(parseInt(localStorage.getItem("user")));
         console.log(user);
         console.log(localStorage.getItem("user"));
-        getOrders()
+        getOrders();
+        console.log(orders)
     }, [])
     
     
