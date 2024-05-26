@@ -15,6 +15,7 @@ export function AdminDashboard() {
         JSON.parse(data).map(item=>(
            a= '['+String(Object.values(item)).substring(1,String(Object.values(item)).length-1)+'"]',
            b=a.slice(0,a.lastIndexOf(",")+1)+'"'+a.slice(a.lastIndexOf(",")+1),
+            console.log(b),
            orderData=JSON.parse(b),
             old=[...old,{id:orderData[0],status:orderData[1],items:[orderData[2]],totalPrice:orderData[3],adress:orderData[4]}]
         ))
